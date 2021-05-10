@@ -14,21 +14,16 @@ variable "resource_group" {
 }
 
 variable "vpc_name" {
-  default = "rhpds_vpc"
+  default = "rhpds"
   description = "Name of your VPC"
 }
 
-variable "cidr_zone" {
-  default = "172.22.0.0/21"
-  description = "CIDR block to be used"
+variable "subnet_name" {
+  default = "rhpds"
+  description = "Name of your Subnet"
 }
 
-variable "subnet1_zone" {
-  default = "172.22.16.0/23"
-  description = "CIDR block to be used"
-}
-
-variable "subnet2_zone" {
-  default = "172.22.18.0/23"
-  description = "CIDR block to be used"
+variable "pg_name" {
+  default = "rhpds"
+  description = "Name of your Public Gateway"
 }
