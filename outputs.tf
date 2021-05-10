@@ -1,4 +1,11 @@
-# cluster config file path
-output "cluster_config_file_path" {
-  value = data.ibm_container_cluster_config.cluster_config.config_file_path
+output "vpc_id" {
+  value = ibm_is_vpc.rhpds.id
+}
+
+output "subnet_id" {
+  value = ibm_is_subnet.rhpds.id
+}
+
+output "public_gateway_id" {
+  value = ibm_is_public_gateway.rhpds.id
 }
