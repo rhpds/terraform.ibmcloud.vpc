@@ -22,3 +22,7 @@ resource "ibm_is_subnet" "rhpds" {
   public_gateway  = ibm_is_public_gateway.rhpds.id
   total_ipv4_address_count = 256
 }
+
+data "ibm_container_cluster_config" "cluster_config" {
+  cluster_name_id = ibm_container_vpc_cluster.cluster.id
+}
