@@ -7,5 +7,5 @@ output "subnet_id" {
 }
 
 output "public_gateway_id" {
-  value = ibm_is_public_gateway.gw.id
+  value = ibm_is_public_gateway.pgw.id
 }
