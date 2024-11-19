@@ -14,16 +14,16 @@ variable "resource_group" {
 }
 
 variable "vpc_name" {
-  default = "rhpds"
+  default = "rhdp-vpc"
   description = "Name of your VPC"
 }
 
 variable "subnet_name" {
-  default = "rhpds"
+  default = "rhdp-subnet"
   description = "Name of your Subnet"
 }
 
 variable "pg_name" {
-  default = "rhpds"
+  default = "rhdp-pg"
   description = "Name of your Public Gateway"
 }
