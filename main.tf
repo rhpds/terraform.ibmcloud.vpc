@@ -11,8 +11,8 @@ resource "ibm_is_vpc" "vpc" {
   resource_group = data.ibm_resource_group.rg.id
 }
 
-resource "ibm_is_public_gateway" "gw" {
-  name = var.pg_name
+resource "ibm_is_public_gateway" "pgw" {
+  name = var.pgw_name
   resource_group = data.ibm_resource_group.rg.id
   vpc  = ibm_is_vpc.vpc.id
   zone = local.ZONE
@@ -23,6 +23,6 @@ resource "ibm_is_subnet" "subnet" {
   vpc             = ibm_is_vpc.vpc.id
   resource_group = data.ibm_resource_group.rg.id
   zone            = local.ZONE
-  public_gateway  = ibm_is_public_gateway.gw.id
+  public_gateway  = ibm_is_public_gateway.pgw.id
   total_ipv4_address_count = 256
 }
