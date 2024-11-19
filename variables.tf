@@ -1,15 +1,15 @@
 variable "ibmcloud_region" {
   description = "Preferred IBM Cloud region to use for your infrastructure"
-  default = "us-east"
+  default = "us-south"
 }
 
 variable "ibmcloud_zone" {
   description = "Preferred IBM Cloud zone in the region to use for your infrastructure"
-  default = "2"
+  default = "10"
 }
 
 variable "resource_group" {
-  default = "Default"
+  default = "rhdp-rg"
   description = "Define the resource group for the workload"
 }
 
@@ -23,7 +23,7 @@ variable "subnet_name" {
   description = "Name of your Subnet"
 }
 
-variable "pg_name" {
-  default = "rhdp-pg"
+variable "pgw_name" {
+  default = "rhdp-pgw"
   description = "Name of your Public Gateway"
 }
