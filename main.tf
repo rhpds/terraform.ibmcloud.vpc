@@ -1,4 +1,4 @@
-data "ibm_resource_group" "rhpds" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -6,23 +6,23 @@ locals {
   ZONE = "${var.ibmcloud_region}-${var.ibmcloud_zone}"
 }
 
-resource "ibm_is_vpc" "rhpds" {
+resource "ibm_is_vpc" "vpc" {
   name = var.vpc_name
-  resource_group = data.ibm_resource_group.rhpds.id
+  resource_group = data.ibm_resource_group.rg.id
 }
 
-resource "ibm_is_public_gateway" "rhpds" {
+resource "ibm_is_public_gateway" "gw" {
   name = var.pg_name
-  resource_group = data.ibm_resource_group.rhpds.id
-  vpc  = ibm_is_vpc.rhpds.id
+  resource_group = data.ibm_resource_group.rg.id
+  vpc  = ibm_is_vpc.vpc.id
   zone = local.ZONE
 }
 
-resource "ibm_is_subnet" "rhpds" {
+resource "ibm_is_subnet" "subnet" {
   name = var.subnet_name
-  vpc             = ibm_is_vpc.rhpds.id
-  resource_group = data.ibm_resource_group.rhpds.id
+  vpc             = ibm_is_vpc.vpc.id
+  resource_group = data.ibm_resource_group.rg.id
   zone            = local.ZONE
-  public_gateway  = ibm_is_public_gateway.rhpds.id
+  public_gateway  = ibm_is_public_gateway.gw.id
   total_ipv4_address_count = 256
 }
