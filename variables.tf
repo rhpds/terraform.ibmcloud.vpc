@@ -5,7 +5,7 @@ variable "ibmcloud_region" {
 
 variable "ibmcloud_zone" {
   description = "Preferred IBM Cloud zone in the region to use for your infrastructure"
-  default = "10"
+  default = "1"
 }
 
 variable "resource_group" {
